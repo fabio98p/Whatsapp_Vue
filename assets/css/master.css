@@ -1,0 +1,88 @@
+body{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+/* #region backBackground */
+#backBackground .greenPart{
+	background-color: #009688;
+	width: 100%;
+	height: 130px;
+}
+#backBackground .greyPart{
+	background-color: #DADBD4;
+	width: 100%;
+	height: calc(100vh - 130px);
+}
+/* #endregion */
+/* #region layout */
+#container{
+	width: 100%;
+	height: 100vh;
+	background-color: aqua;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+@media all and (min-width: 1440px) {
+	#container{
+		background-color: aqua;
+		width: 1400px;
+		height: 95vh;
+
+		position: absolute;
+		top: 2.5vh;
+		left: calc((100% - 1400px)/2);
+	}
+}
+
+
+#container nav{
+
+	width: 100%;
+	height: 60px;
+}
+#container nav .navbarLeft{
+	background-color: blueviolet;
+	width: calc(370px);
+	height: calc(100%);
+	float: left;
+}
+#container nav .navbarRight{
+	background-color: blue;
+	width: calc(100% - 370px);
+	height: calc(100%);
+	float: left;
+}
+
+#container main{
+	width: calc(100%);
+	height: calc(100% - 60px);
+}
+#container main aside{
+	background-color: burlywood;
+	width: calc(370px);
+	height: calc(100%);
+
+	float: left;
+}
+#container main #conversation{
+	width: calc(100% - 370px);
+	height: calc(100%);
+	float: left;
+}
+#container main #conversation .mainChat{
+	background-color: yellow;
+	width: 100%;
+	height: calc(100% - 60px);
+
+}
+#container main #conversation .newMesage{
+	background-color: yellowgreen;
+	width: 100%;
+	height: 60px;
+}
+
+/* #endregion */
+
