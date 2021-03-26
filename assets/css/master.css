@@ -1,7 +1,9 @@
 body{
-	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+}
+*{
+	box-sizing: border-box;
 }
 /* #region backBackground */
 #backBackground .greenPart{
@@ -16,11 +18,12 @@ body{
 }
 /* #endregion */
 /* #region layout */
+/* #region positionament container */
 #container{
 	width: 100%;
 	height: 100vh;
 	background-color: aqua;
-
+	
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -30,59 +33,99 @@ body{
 		background-color: aqua;
 		width: 1400px;
 		height: 95vh;
-
+		
 		position: absolute;
 		top: 2.5vh;
 		left: calc((100% - 1400px)/2);
 	}
 }
+/* #endregion */
 
-
-#container nav{
-
-	width: 100%;
-	height: 60px;
-}
-#container nav .navbarLeft{
-	background-color: blueviolet;
+/* #region aside */
+#container aside{
 	width: calc(370px);
 	height: calc(100%);
 	float: left;
 }
-#container nav .navbarRight{
-	background-color: blue;
-	width: calc(100% - 370px);
-	height: calc(100%);
-	float: left;
+#container aside .myProfile{
+	width: 100%;
+	height: calc(60px);
 }
-
-#container main{
-	width: calc(100%);
-	height: calc(100% - 60px);
-}
-#container main aside{
+#container aside .contact{
 	background-color: burlywood;
-	width: calc(370px);
-	height: calc(100%);
-
-	float: left;
-}
-#container main #conversation{
-	width: calc(100% - 370px);
-	height: calc(100%);
-	float: left;
-}
-#container main #conversation .mainChat{
-	background-color: yellow;
 	width: 100%;
 	height: calc(100% - 60px);
-
-}
-#container main #conversation .newMesage{
-	background-color: yellowgreen;
-	width: 100%;
-	height: 60px;
 }
 
 /* #endregion */
 
+/* #region main */
+#container main{
+	width: calc(100% - 370px);
+	height: calc(100%);
+	float: left;
+}
+#container main .profileConversator{
+	width: 100%;
+	height: 60px;
+}
+#container main .mainChat{
+	background-color: yellow;
+	width: 100%;
+	height: calc(100% - 60px - 60px);
+	overflow-y: auto;
+}
+#container main .newMesage{
+	background-color: yellowgreen;
+	width: 100%;
+	height: 60px;
+}
+/* #endregion */
+/* #endregion */
+
+/* #region ASIDE */
+/* #region myProfile */
+aside .myProfile{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	
+	border-right: 1px solid #DADADA ;
+	background-color: #EDEDED;
+	box-sizing: inherit;
+}
+aside .myProfile .left, aside .myProfile .right {
+	margin: 0 20px;
+}
+aside .myProfile .right i{
+	margin-right: 10px;
+}
+aside .myProfile .left img{
+	height: 40px;
+	border-radius: 50%;
+}
+
+/* #endregion */
+/* #endregion */
+
+
+/* #region MAIN */
+main .profileConversator{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	background-color: #EDEDED;
+	box-sizing: inherit;
+}
+main .profileConversator .left {
+	margin: 0 20px;
+}
+main .profileConversator .right i{
+	margin-right: 30px;
+}
+main .profileConversator .left img{
+	height: 40px;
+	border-radius: 50%;
+}
+/* #endregion */
