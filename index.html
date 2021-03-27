@@ -31,7 +31,7 @@
 					<div class="right">
 						<i class="fas fa-circle-notch"></i>
 						<i class="far fa-comment-alt"></i>
-						<i class="fas fa-ellipsis-v"></i>
+						<i @click='array' class="fas fa-ellipsis-v"></i>
 					</div>
 				</div>
 
@@ -48,150 +48,15 @@
 				</div>
 
 				<div class="contact">
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
+					<div @click="ChangeChat(contact)" v-for=" contact in contactsArray" class="chat">
+						<img :src="img(contact.avatar)" alt="">
 						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
+							<h3>{{ contact.name }}</h3>
+							<p>{{ contact.messages[contact.messages.length-1].text }}</p>
 						</div>
-						<div class="data">20:29</div>
+						<div class="data">{{ contact.messages[contact.messages.length-1].date.split(' ')[1] }}</div>
 					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
-					<div class="chat">
-						<img src="./assets/img/avatar_1.jpg" alt="">
-						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>hello</p>
-						</div>
-						<div class="data">20:29</div>
-					</div>
+
 				</div>
 			</aside>
 
@@ -211,38 +76,15 @@
 					</div>
 				</div>
 
-				<div class="mainChat">
-					<div class="message sent">
-						<div class="textMessage">ma lei é il signor apicetti?</div>
+
+				<div v-if="contact.visible" v-for="contact in contactsArray" class="mainChat">
+					<div v-for="message in contact.messages" :class="message.status" class="message">
+						<div class="textMessage">{{ message.text }}</div>
 						<i class="fas fa-caret-down triangolino"></i>
-						<div class="dataAndCheck">0:02<i class="check fas fa-check"></i></div>
+						<div class="dataAndCheck">{{ message.date.split(' ')[1] }}<i class="check fas fa-check"></i></div>
 						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
 					</div>
-					<div class="message received">
-						<div class="textMessage">si</div>
-						<i class="fas fa-caret-down triangolino"></i>
-						<div class="dataAndCheck">0:02<i class="check fas fa-check"></i></div>
-						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
-					</div>
-					<div class="message received">
-						<div class="textMessage">perche?</div>
-						<i class="fas fa-caret-down triangolino"></i>
-						<div class="dataAndCheck">0:02<i class="check fas fa-check"></i></div>
-						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
-					</div>
-					<div class="message sent">
-						<div class="textMessage">perche in tal caso sei il carissimo Nik giusto?</div>
-						<i class="fas fa-caret-down triangolino"></i>
-						<div class="dataAndCheck">0:02<i class="check fas fa-check"></i></div>
-						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
-					</div>
-					<div class="message received">
-						<div class="textMessage">esatto</div>
-						<i class="fas fa-caret-down triangolino"></i>
-						<div class="dataAndCheck">0:02<i class="check fas fa-check"></i></div>
-						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
-					</div>
-					
+				
 
 				</div>
 
@@ -259,6 +101,7 @@
 
 
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="./assets/js/dati.js"></script>
 		<script src="./assets/js/main.js"></script>
 	</div>
 </body>

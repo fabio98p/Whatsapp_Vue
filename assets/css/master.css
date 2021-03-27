@@ -196,12 +196,11 @@ aside .contact .chat .nameAndInfo h3, aside .contact .chat .nameAndInfo p{
 	margin: 0;
 }
 aside .contact .chat .data{
-	position: absolute;
-    top: 20px;
-    right: 10px;
-
-	font-size: 14px;
-	color: grey;
+    position: absolute;
+    top: 16px;
+    right: 14px;
+    font-size: 12px;
+    color: grey;
 }
 /* #endregion */
 /* #endregion */
@@ -245,7 +244,7 @@ main .mainChat .dataAndCheck{
 /* mandato sent */
 main .mainChat .message.sent{
 	position: relative;
-	padding: 6px 60px 8px 9px;
+	padding: 6px 75px 8px 9px;
 	margin: 10px 0;
 	background-color: #DCF8C6;
 	border-radius: 7.5px;
