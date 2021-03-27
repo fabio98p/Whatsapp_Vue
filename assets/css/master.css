@@ -5,6 +5,31 @@ body{
 *{
 	box-sizing: border-box;
 }
+/* #region general comand */
+.nameAndInfo{
+	display: inline-block;
+	margin-left: 10px;
+}
+.nameAndInfo h3,  .nameAndInfo p{
+	margin: 5px 0;
+	font-weight: normal;
+	color: grey;
+}
+
+/* #region scrollbar chrome */
+::-webkit-scrollbar {
+    width: 6px!important;
+    height: 6px!important;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.2);
+}
+::-webkit-scrollbar-track {
+    background: hsla(0,0%,100%,.1);
+}
+/* #endregion */
+/* #endregion */
+
 /* #region backBackground */
 #backBackground .greenPart{
 	background-color: #009688;
@@ -60,7 +85,7 @@ body{
 	height: 50px;
 }
 #container aside .contact{
-	background-color: burlywood;
+	background-color: #fff;
 	width: 100%;
 	height: calc(100% - 60px - 85px - 50px);
 }
@@ -125,10 +150,7 @@ aside .spamNotification i{
 	font-size: 18px;
 	margin: 0 10px;
 }
-aside .spamNotification h3, aside .spamNotification p{
-	margin: 5px 0;
-	font-weight: normal;
-}
+
 
 aside .searchContact{
 	background-color: #F6F6F6;
@@ -142,6 +164,44 @@ aside .searchContact input{
 	padding: 10px;
 	border-radius: 20px;
 	border: 0;
+}
+
+aside .contact{
+	overflow-y: auto;
+}
+aside .contact .chat {
+	height: 70px;
+	width: 100%;
+	background-color: #EDEDED;
+	position: relative;
+
+	display: flex;
+	align-items: center;
+}
+aside .contact .chat img{
+	width: 40px;
+	margin: 0 15px;
+	border-radius: 50%;
+}
+aside .contact .chat .nameAndInfo{
+	height: 70px;
+	width: calc(100% - 90px);
+	border-bottom: 1px solid #DADADA ;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+aside .contact .chat .nameAndInfo h3, aside .contact .chat .nameAndInfo p{
+	margin: 0;
+}
+aside .contact .chat .data{
+	position: absolute;
+    top: 20px;
+    right: 10px;
+
+	font-size: 14px;
+	color: grey;
 }
 /* #endregion */
 /* #endregion */
@@ -168,6 +228,67 @@ main .profileConversator .left img{
 }
 
 
+main .mainChat{
+	padding: 0 9%;
+    display: flex;
+    flex-direction: column;
+	justify-content: flex-end;
+}
+main .mainChat .dataAndCheck{
+	position: absolute;
+    bottom: 3px;
+    right: 10px;
+    font-size: 11px;
+	color: grey;
+}
+
+/* mandato sent */
+main .mainChat .message.sent{
+	position: relative;
+	padding: 6px 60px 8px 9px;
+	margin: 10px 0;
+	background-color: #DCF8C6;
+	border-radius: 7.5px;
+
+	align-self: flex-end;
+	display: inline-flex;
+	align-items: center;
+}
+main .mainChat .message.sent i.triangolino{
+	position: absolute;
+	font-size: 20px;
+    top: -7px;
+    right: -6px;
+	color: #DCF8C6;
+}
+main .mainChat .message.sent .dataAndCheck i.check{
+	margin-left: 5px;
+	color: grey;
+}
+/* ricevuto received */
+main .mainChat .message.received{
+	position: relative;
+	padding: 6px 60px 8px 9px;
+	margin: 10px 0;
+	background-color: #fff;
+	border-radius: 7.5px;
+	
+	align-self: flex-start;
+	display: inline-flex;
+	align-items: center;
+}
+main .mainChat .message.received i.triangolino{
+	position: absolute;
+	font-size: 20px;
+    top: -7px;
+    left: -6px;
+	color: #fff;
+}
+main .mainChat .message.received i.check{
+	display: none;
+}
+
+
 
 main .newMesage{
 	display: flex;
@@ -187,6 +308,5 @@ main .newMesage input{
 	border-radius: 20px;
 	border: 0;
 	color: #919191;
-
 }
 /* #endregion */
