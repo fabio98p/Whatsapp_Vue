@@ -172,11 +172,17 @@ aside .contact{
 aside .contact .chat {
 	height: 70px;
 	width: 100%;
-	background-color: #EDEDED;
+	background-color: #fff;
 	position: relative;
 
 	display: flex;
 	align-items: center;
+}
+aside .contact .chat:hover {
+	background-color: #F5F5F5;
+}
+aside .contact .chat.active {
+	background-color: #EBEBEB;
 }
 aside .contact .chat img{
 	width: 40px;
@@ -232,6 +238,8 @@ main .mainChat{
     display: flex;
     flex-direction: column;
 	justify-content: flex-end;
+
+	overflow-y: auto;
 }
 main .mainChat .dataAndCheck{
 	position: absolute;

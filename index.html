@@ -48,8 +48,8 @@
 				</div>
 
 				<div class="contact">
-					<div @click="ChangeChat(contact)" v-for=" contact in contactsArray" class="chat">
-						<img :src="img(contact.avatar)" alt="">
+					<div @click="ChangeChat(contact)" v-for=" contact in contactsArray" :class="(contact.visible) ? 'active' : ''" class="chat">
+						<img :src="img(contact)" alt="">
 						<div class="nameAndInfo">
 							<h3>{{ contact.name }}</h3>
 							<p>{{ contact.messages[contact.messages.length-1].text }}</p>
@@ -61,12 +61,12 @@
 			</aside>
 
 			<main>
-				<div class="profileConversator">
+				<div v-if="contact.visible" v-for="contact in contactsArray" class="profileConversator">
 					<div class="left">
-						<img src="./assets/img/avatar_1.jpg" alt="">
+						<img :src="contactProfile" alt="">
 						<div class="nameAndInfo">
-							<h3>Tizio Caio Semprogno</h3>
-							<p>Ultimo accesso oggi alle ore 21: 20</p>
+							<h3>{{ contact.name }}</h3>
+							<p>Ultimo accesso oggi alle ore {{ contact.messages[contact.messages.length-1].date.split(' ')[1] }}</p>
 						</div>
 					</div>
 
@@ -91,7 +91,7 @@
 				<div class="newMesage">
 					<i class="far fa-meh"></i>
 					<i class="fas fa-paperclip"></i>
-					<input placeholder="scrivi un messaggio" type="text">
+					<input v-on:keyup.enter="sendingMessage" v-model="newMessage" placeholder="scrivi un messaggio" type="text">
 					<i class="fas fa-microphone"></i>
 				</div>
 			</main>
