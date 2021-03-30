@@ -88,6 +88,10 @@ body{
 	background-color: #fff;
 	width: 100%;
 	height: calc(100% - 60px - 85px - 50px);
+
+	display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
 }
 
 /* #endregion */

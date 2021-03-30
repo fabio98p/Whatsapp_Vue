@@ -15,7 +15,7 @@ const contacts = [
 				status: 'sent'
 			},
 			{
-				date: '2020/01/10 16:15:35',
+				date: '10/01/2020 16:15:22',
 				text: 'Tutto fatto!',
 				status: 'received'
 			}
@@ -37,7 +37,7 @@ const contacts = [
 				status: 'received'
 			},
 			{
-				date: '2020/01/10 16:35:00',
+				date: '10/01/2020 16:15:22',
 				text: 'Mi piacerebbe ma devo andare a fare la spesa.',
 				status: 'sent'
 			}
@@ -59,7 +59,7 @@ const contacts = [
 				status: 'sent'
 			},
 			{
-				date: '2020/01/10 16:15:22',
+				date: '28/03/2020 16:15:22',
 				text: 'Ah scusa!',
 				status: 'received'
 			}
@@ -76,7 +76,7 @@ const contacts = [
 				status: 'sent'
 			},
 			{
-				date: '2020/01/10 15:50:00',
+				date: '10/01/2020 15:50:00',
 				text: 'Si, ma preferirei andare al cinema',
 				status: 'received'
 			}

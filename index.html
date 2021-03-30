@@ -47,24 +47,34 @@
 					<input placeholder="Cerca o inizia una nuova chat" type="text">
 				</div>
 
+				<!-- lista di contatti presenti nel aside bar -->
 				<div class="contact">
-					<div @click="ChangeChat(contact)" v-for=" contact in contactsArray" :class="(contact.visible) ? 'active' : ''" class="chat">
-						<img :src="img(contact)" alt="">
+					<!-- il singolo contatto che si crea tot volte
+					per la lunghezza dell array e che al click cambia focus -->
+					<div @click="ChangeChat(contact)"
+					v-for=" contact in intOrderedArray"
+					:class="(contact.visible) ? 'active' : ''"
+					class="chat">
+						<img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
 						<div class="nameAndInfo">
+							<!-- prendo gli elementi dal oggetto della singola chat -->
 							<h3>{{ contact.name }}</h3>
 							<p>{{ contact.messages[contact.messages.length-1].text }}</p>
 						</div>
 						<div class="data">{{ contact.messages[contact.messages.length-1].date.split(' ')[1] }}</div>
 					</div>
-
 				</div>
 			</aside>
 
 			<main>
+
+				<!-- creo il profilo avatar da mettere nella navbar sopra
+				la mainChat che cambii in base a quale chat e' selezionata -->
 				<div v-if="contact.visible" v-for="contact in contactsArray" class="profileConversator">
 					<div class="left">
 						<img :src="contactProfile" alt="">
 						<div class="nameAndInfo">
+							<!-- prendo gli elementi dal oggetto della singola chat -->
 							<h3>{{ contact.name }}</h3>
 							<p>Ultimo accesso oggi alle ore {{ contact.messages[contact.messages.length-1].date.split(' ')[1] }}</p>
 						</div>
@@ -76,18 +86,19 @@
 					</div>
 				</div>
 
-
+				<!-- creo il for per ciclare le mainChat in base a quale persona seleziono -->
 				<div v-if="contact.visible" v-for="contact in contactsArray" class="mainChat">
+					<!-- creo un ulteriore for per ciclare i messaggi interni alle chat e scriverli -->
 					<div v-for="message in contact.messages" :class="message.status" class="message">
+							<!-- prendo gli elementi del arrey di messaggi -->
 						<div class="textMessage">{{ message.text }}</div>
-						<i class="fas fa-caret-down triangolino"></i>
 						<div class="dataAndCheck">{{ message.date.split(' ')[1] }}<i class="check fas fa-check"></i></div>
+						<i class="fas fa-caret-down triangolino"></i>
 						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
 					</div>
-				
-
 				</div>
 
+				<!-- serve per poter scrivere i messaggi -->
 				<div class="newMesage">
 					<i class="far fa-meh"></i>
 					<i class="fas fa-paperclip"></i>
