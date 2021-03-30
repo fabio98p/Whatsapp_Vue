@@ -44,7 +44,7 @@
 				</div>
 
 				<div class="searchContact">
-					<input placeholder="Cerca o inizia una nuova chat" type="text">
+					<input v-model="searchContact" placeholder="Cerca o inizia una nuova chat" type="text">
 				</div>
 
 				<!-- lista di contatti presenti nel aside bar -->
@@ -54,6 +54,7 @@
 					<div @click="ChangeChat(contact)"
 					v-for=" contact in intOrderedArray"
 					:class="(contact.visible) ? 'active' : ''"
+					v-if="(insertNameContact(contact))"
 					class="chat">
 						<img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
 						<div class="nameAndInfo">

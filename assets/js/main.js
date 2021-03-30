@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			el: '#root',
 			data: {
 				newMessage: '',
+				searchContact: '',
 				contactProfile: './assets/img/avatar_1.jpg',
 				contactsArray: contacts,
 			},
@@ -55,14 +56,21 @@ document.addEventListener('DOMContentLoaded', function () {
 					}, 1000)
 				},
 
+				//
+				
 				// classica funzione random
 				random: function (min, max) {
 					return Math.floor(Math.random() * (max - min + 1)) + min;
 				},
-
+				
 				//funzione di prova per testare le cose (premere sui 3 pallini del menu nella sidebar)
 				array: function () {
-					console.log(this.intOrderedArray);
+					console.log('prova');
+				},
+				insertNameContact: function (e) {
+					const p = this.searchContact.toLowerCase()
+					if (p == '') return true
+					return e.name.toLowerCase().includes(p)
 				},
 				
 			},
