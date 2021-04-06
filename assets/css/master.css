@@ -18,14 +18,14 @@ body{
 
 /* #region scrollbar chrome */
 ::-webkit-scrollbar {
-    width: 6px!important;
-    height: 6px!important;
+	width: 6px!important;
+	height: 6px!important;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,.2);
+	background-color: rgba(0,0,0,.2);
 }
 ::-webkit-scrollbar-track {
-    background: hsla(0,0%,100%,.1);
+	background: hsla(0,0%,100%,.1);
 }
 /* #endregion */
 /* #endregion */
@@ -90,8 +90,8 @@ body{
 	height: calc(100% - 60px - 85px - 50px);
 
 	display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
+	flex-direction: column-reverse;
+	justify-content: flex-end;
 }
 
 /* #endregion */
@@ -206,11 +206,11 @@ aside .contact .chat .nameAndInfo h3, aside .contact .chat .nameAndInfo p{
 	margin: 0;
 }
 aside .contact .chat .data{
-    position: absolute;
-    top: 16px;
-    right: 14px;
-    font-size: 12px;
-    color: grey;
+	position: absolute;
+	top: 16px;
+	right: 14px;
+	font-size: 12px;
+	color: grey;
 }
 /* #endregion */
 /* #endregion */
@@ -239,17 +239,17 @@ main .profileConversator .left img{
 
 main .mainChat{
 	padding: 0 9%;
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	justify-content: flex-end;
 
 	overflow-y: auto;
 }
 main .mainChat .dataAndCheck{
 	position: absolute;
-    bottom: 3px;
-    right: 10px;
-    font-size: 11px;
+	bottom: 3px;
+	right: 10px;
+	font-size: 11px;
 	color: grey;
 }
 
@@ -268,13 +268,46 @@ main .mainChat .message.sent{
 main .mainChat .message.sent i.triangolino{
 	position: absolute;
 	font-size: 20px;
-    top: -7px;
-    right: -6px;
+	top: -7px;
+	right: -6px;
 	color: #DCF8C6;
 }
 main .mainChat .message.sent .dataAndCheck i.check{
 	margin-left: 5px;
 	color: grey;
+}
+main .mainChat .message i.openMiniMenu{
+	display: none;
+	position: absolute;
+	font-size: 14px;
+	top: 4px;
+	right: 7px;
+	color: lightgrey;
+}
+main .mainChat .message i.openMiniMenu{
+	display: block;
+}
+main .mainChat .message div.menu{
+	display: none;
+}
+main .mainChat .message div.menu.active{
+	display: block;
+	position: absolute;
+	top: 4px;
+	right: 7px;
+
+	background-color: white;
+	box-shadow: 1px 1px 6px lightgrey;
+	z-index: 1;
+	padding: 5px 0;
+}
+main .mainChat .message div.menu span{
+	padding: 20px;
+	display: block;
+	color: black;
+}
+main .mainChat .message div.menu span:hover{
+	background-color: lightgrey;
 }
 /* ricevuto received */
 main .mainChat .message.received{
@@ -291,8 +324,8 @@ main .mainChat .message.received{
 main .mainChat .message.received i.triangolino{
 	position: absolute;
 	font-size: 20px;
-    top: -7px;
-    left: -6px;
+	top: -7px;
+	left: -6px;
 	color: #fff;
 }
 main .mainChat .message.received i.check{

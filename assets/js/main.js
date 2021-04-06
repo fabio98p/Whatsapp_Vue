@@ -5,12 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		{
 			el: '#root',
 			data: {
+				//todo, questo nome non e' adatto alla variabile
+				menuMessageIsOpen: null,
 				newMessage: '',
 				searchContact: '',
 				contactProfile: './assets/img/avatar_1.jpg',
 				contactsArray: contacts,
 			},
 			methods: {
+				date: function (contact) {
+					const lastMessage = contact.messages[contact.messages.length-1].date.split(' ')[1]
+				return `${lastMessage.split(":")[0]}:${lastMessage.split(":")[1]}`
+				},
 				//funzione che permette cose al click sul utente
 				ChangeChat: function (contact) {
 					//serve per cambiare la mainChat  al click
@@ -63,16 +69,28 @@ document.addEventListener('DOMContentLoaded', function () {
 					return Math.floor(Math.random() * (max - min + 1)) + min;
 				},
 				
-				//funzione di prova per testare le cose (premere sui 3 pallini del menu nella sidebar)
-				array: function () {
-					console.log('prova');
-				},
 				insertNameContact: function (e) {
 					const p = this.searchContact.toLowerCase()
 					if (p == '') return true
 					return e.name.toLowerCase().includes(p)
 				},
 				
+				//funzione di prova per testare le cose (premere sui 3 pallini del menu nella sidebar)
+				array: function (message, index) {
+					console.log(message.length);
+					this.menuMessageIsOpen = "active"
+
+					// for (let i = 0; i < contact.messages.length; i++) {
+					// 	console.log(this.contactsArray[i]);
+					// 	if (index == i) {
+					// 		this.menuMessageIsOpen = "active"
+					// 		i = contact.messages.length
+					// 	}else{
+					// 		this.menuMessageIsOpen = ""
+					// 	}
+						
+					// }
+				},
 			},
 			computed: {
 				// questa funzione serve unicamente a far salire in alto le conversazioni

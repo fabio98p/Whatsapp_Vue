@@ -62,7 +62,7 @@
 							<h3>{{ contact.name }}</h3>
 							<p>{{ contact.messages[contact.messages.length-1].text }}</p>
 						</div>
-						<div class="data">{{ contact.messages[contact.messages.length-1].date.split(' ')[1] }}</div>
+						<div class="data">{{ date(contact) }}</div>
 					</div>
 				</div>
 			</aside>
@@ -77,7 +77,7 @@
 						<div class="nameAndInfo">
 							<!-- prendo gli elementi dal oggetto della singola chat -->
 							<h3>{{ contact.name }}</h3>
-							<p>Ultimo accesso oggi alle ore {{ contact.messages[contact.messages.length-1].date.split(' ')[1] }}</p>
+							<p>Ultimo accesso oggi alle ore {{ date(contact) }}</p>
 						</div>
 					</div>
 
@@ -88,13 +88,23 @@
 				</div>
 
 				<!-- creo il for per ciclare le mainChat in base a quale persona seleziono -->
-				<div v-if="contact.visible" v-for="contact in contactsArray" class="mainChat">
+				<div v-if="contact.visible" v-for="(contact) in contactsArray" class="mainChat">
 					<!-- creo un ulteriore for per ciclare i messaggi interni alle chat e scriverli -->
-					<div v-for="message in contact.messages" :class="message.status" class="message">
+					<div v-for="(message, index) in contact.messages"
+					:class="message.status"
+					class="message">
 							<!-- prendo gli elementi del arrey di messaggi -->
 						<div class="textMessage">{{ message.text }}</div>
-						<div class="dataAndCheck">{{ message.date.split(' ')[1] }}<i class="check fas fa-check"></i></div>
+						<div class="dataAndCheck">{{ date(contact) }}<i class="check fas fa-check"></i></div>
 						<i class="fas fa-caret-down triangolino"></i>
+						<i class="fas fa-chevron-down openMiniMenu"
+						@click="menuMessageIsOpen = index">
+							<div class="menu"
+							:class= "(menuMessageIsOpen == index)? 'active': null">
+								<span class="removeMessage">remove</span>
+								<span>info</span>
+							</div>
+						</i>
 						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
 					</div>
 				</div>
