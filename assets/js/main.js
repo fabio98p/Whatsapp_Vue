@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			el: '#root',
 			data: {
 				//todo, questo nome non e' adatto alla variabile
-				menuMessageIsOpen: null,
+				indexMessage: null,
 				newMessage: '',
 				searchContact: '',
 				contactProfile: './assets/img/avatar_1.jpg',
@@ -75,21 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					return e.name.toLowerCase().includes(p)
 				},
 				
+				//funzione che serve a eliminare il messaggio
+				removeMessage: function (contactIndex, messageIndex) {
+					this.contactsArray[contactIndex].messages.splice(messageIndex, 1);
+				},
 				//funzione di prova per testare le cose (premere sui 3 pallini del menu nella sidebar)
 				array: function (message, index) {
-					console.log(message.length);
-					this.menuMessageIsOpen = "active"
-
-					// for (let i = 0; i < contact.messages.length; i++) {
-					// 	console.log(this.contactsArray[i]);
-					// 	if (index == i) {
-					// 		this.menuMessageIsOpen = "active"
-					// 		i = contact.messages.length
-					// 	}else{
-					// 		this.menuMessageIsOpen = ""
-					// 	}
-						
-					// }
+					console.log('helloo');
 				},
 			},
 			computed: {

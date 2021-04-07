@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<div id="root">
+	<div id="root" @click="indexMessage = null">
 
 		<div id="backBackground">
 			<div class="greenPart"></div>
@@ -88,9 +88,9 @@
 				</div>
 
 				<!-- creo il for per ciclare le mainChat in base a quale persona seleziono -->
-				<div v-if="contact.visible" v-for="(contact) in contactsArray" class="mainChat">
+				<div v-if="contact.visible" v-for="(contact, contactIndex) in contactsArray" class="mainChat">
 					<!-- creo un ulteriore for per ciclare i messaggi interni alle chat e scriverli -->
-					<div v-for="(message, index) in contact.messages"
+					<div v-for="(message, messageIndex) in contact.messages"
 					:class="message.status"
 					class="message">
 							<!-- prendo gli elementi del arrey di messaggi -->
@@ -98,19 +98,19 @@
 						<div class="dataAndCheck">{{ date(contact) }}<i class="check fas fa-check"></i></div>
 						<i class="fas fa-caret-down triangolino"></i>
 						<i class="fas fa-chevron-down openMiniMenu"
-						@click="menuMessageIsOpen = index">
-							<div class="menu"
-							:class= "(menuMessageIsOpen == index)? 'active': null">
-								<span class="removeMessage">remove</span>
-								<span>info</span>
-							</div>
-						</i>
+						@click.stop="indexMessage = messageIndex">
+					</i>
+					<div class="menu"
+					:class= "(indexMessage == messageIndex)? 'active': null">
+						<span @click="removeMessage(contactIndex, messageIndex)" class="removeMessage">remove</span>
+						<span>info</span>
+					</div>
 						<!-- <i class="fas fa-check-double"></i> per cambiarlo in doppio ceck -->
 					</div>
 				</div>
 
 				<!-- serve per poter scrivere i messaggi -->
-				<div class="newMesage">
+				<div class="newMessage">
 					<i class="far fa-meh"></i>
 					<i class="fas fa-paperclip"></i>
 					<input v-on:keyup.enter="sendingMessage" v-model="newMessage" placeholder="scrivi un messaggio" type="text">

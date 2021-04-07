@@ -112,7 +112,7 @@ body{
 	height: calc(100% - 60px - 60px);
 	overflow-y: auto;
 }
-#container main .newMesage{
+#container main .newMessage{
 	width: 100%;
 	height: 60px;
 }
@@ -284,22 +284,22 @@ main .mainChat .message i.openMiniMenu{
 	right: 7px;
 	color: lightgrey;
 }
-main .mainChat .message i.openMiniMenu{
+main .mainChat .message:hover i.openMiniMenu{
 	display: block;
 }
 main .mainChat .message div.menu{
 	display: none;
-}
-main .mainChat .message div.menu.active{
-	display: block;
 	position: absolute;
-	top: 4px;
-	right: 7px;
-
+    top: 17px;
+    right: 21px;
+	
 	background-color: white;
 	box-shadow: 1px 1px 6px lightgrey;
 	z-index: 1;
 	padding: 5px 0;
+}
+main .mainChat .message div.menu.active{
+	display: block;
 }
 main .mainChat .message div.menu span{
 	padding: 20px;
@@ -331,21 +331,18 @@ main .mainChat .message.received i.triangolino{
 main .mainChat .message.received i.check{
 	display: none;
 }
-
-
-
-main .newMesage{
+main .newMessage{
 	display: flex;
 	align-items: center;
 	background-color: #F0F0F0;
 }
-main .newMesage i{
+main .newMessage i{
 	text-align: center;
 	width: 50px;
 	color: #919191;
 	font-size: 20px;
 }
-main .newMesage input{
+main .newMessage input{
 	width: calc(100% - 150px);
 	background-color: #fff;
 	padding: 10px;
