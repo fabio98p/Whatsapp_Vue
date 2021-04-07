@@ -44,18 +44,20 @@
 				</div>
 
 				<div class="searchContact">
-					<input v-model="searchContact" placeholder="Cerca o inizia una nuova chat" type="text">
+					<input type="text"
+					placeholder="Cerca o inizia una nuova chat"
+					v-model="searchContact">
 				</div>
 
 				<!-- lista di contatti presenti nel aside bar -->
 				<div class="contact">
 					<!-- il singolo contatto che si crea tot volte
 					per la lunghezza dell array e che al click cambia focus -->
-					<div @click="ChangeChat(contact)"
+					<div class="chat"
 					v-for=" contact in intOrderedArray"
-					:class="(contact.visible) ? 'active' : ''"
 					v-if="(insertNameContact(contact))"
-					class="chat">
+					:class="(contact.visible) ? 'active' : ''"
+					@click="ChangeChat(contact)">
 						<img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
 						<div class="nameAndInfo">
 							<!-- prendo gli elementi dal oggetto della singola chat -->
@@ -71,7 +73,9 @@
 
 				<!-- creo il profilo avatar da mettere nella navbar sopra
 				la mainChat che cambii in base a quale chat e' selezionata -->
-				<div v-if="contact.visible" v-for="contact in contactsArray" class="profileConversator">
+				<div class="profileConversator"
+				v-for="contact in contactsArray"
+				v-if="contact.visible">
 					<div class="left">
 						<img :src="contactProfile" alt="">
 						<div class="nameAndInfo">

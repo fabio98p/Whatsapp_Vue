@@ -2,7 +2,7 @@ const contacts = [
 	{
 		name: 'Michele',
 		avatar: '_1',
-		visible: true,
+		visible: null,
 		messages: [
 			{
 				date: '10/01/2020 15:30:55',
@@ -24,7 +24,7 @@ const contacts = [
 	{
 		name: 'Fabio',
 		avatar: '_2',
-		visible: false,
+		visible: null,
 		messages: [
 			{
 				date: '20/03/2020 16:30:00',
@@ -46,7 +46,7 @@ const contacts = [
 	{
 		name: 'Samuele',
 		avatar: '_3',
-		visible: false,
+		visible: null,
 		messages: [
 			{
 				date: '28/03/2020 10:10:40',
@@ -68,7 +68,7 @@ const contacts = [
 	{
 		name: 'Luisa',
 		avatar: '_4',
-		visible: false,
+		visible: null,
 		messages: [
 			{
 				date: '10/01/2020 15:30:55',

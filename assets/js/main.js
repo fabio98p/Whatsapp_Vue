@@ -5,27 +5,28 @@ document.addEventListener('DOMContentLoaded', function () {
 		{
 			el: '#root',
 			data: {
-				//todo, questo nome non e' adatto alla variabile
 				indexMessage: null,
 				newMessage: '',
 				searchContact: '',
+				//todo, all'inizio non mette l'immagine profilo corretta
 				contactProfile: './assets/img/avatar_1.jpg',
 				contactsArray: contacts,
 			},
 			methods: {
+				//serve unicamente per abbreviare il codice nel html
 				date: function (contact) {
-					const lastMessage = contact.messages[contact.messages.length-1].date.split(' ')[1]
-				return `${lastMessage.split(":")[0]}:${lastMessage.split(":")[1]}`
+					const lastMessage = contact.messages[contact.messages.length - 1].date.split(' ')[1]
+					return `${lastMessage.split(":")[0]}:${lastMessage.split(":")[1]}`
 				},
 				//funzione che permette cose al click sul utente
 				ChangeChat: function (contact) {
-					//serve per cambiare la mainChat  al click
+					//serve per mettere tutti i profili a visible false per poi
+					//mettere quello cliccato su true, questo permette di 
+					//capire quale mainChat visualizzare e tutte le cose del caso
 					for (let i = 0; i < this.contactsArray.length; i++) {
 						this.contactsArray[i].visible = false;
 					}
-					//serve per cambiare la profileConversator  al click
 					contact.visible = true
-
 				},
 				//funzione che inizia premendo l'invio ovverso spedendo il messaggio
 				sendingMessage: function () {
@@ -62,19 +63,17 @@ document.addEventListener('DOMContentLoaded', function () {
 					}, 1000)
 				},
 
-				//
-				
 				// classica funzione random
 				random: function (min, max) {
 					return Math.floor(Math.random() * (max - min + 1)) + min;
 				},
-				
+
 				insertNameContact: function (e) {
-					const p = this.searchContact.toLowerCase()
-					if (p == '') return true
-					return e.name.toLowerCase().includes(p)
+					const nameToLowercase = this.searchContact.toLowerCase()
+					if (nameToLowercase == '') return true
+					return e.name.toLowerCase().includes(nameToLowercase)
 				},
-				
+
 				//funzione che serve a eliminare il messaggio
 				removeMessage: function (contactIndex, messageIndex) {
 					this.contactsArray[contactIndex].messages.splice(messageIndex, 1);
@@ -94,26 +93,42 @@ document.addEventListener('DOMContentLoaded', function () {
 					this.contactsArray.forEach((e) => {
 						const actualDate = e.messages[e.messages.length - 1].date
 						const splited = actualDate.split(' ')
-						const dateConverted = new Date(`${splited[0].split('/')[1]}/${splited[0].split('/')[0]}/${splited[0].split('/')[2]} ${splited[1]}`) 
+						const dateConverted = new Date(`${splited[0].split('/')[1]}/${splited[0].split('/')[0]}/${splited[0].split('/')[2]} ${splited[1]}`)
 						datePreSorted.push(dateConverted)
 						dateForSort.push(dateConverted)
 					});
 
 					dateForSort.sort()
 
-					// creazione ordenedArray e inserimento del ordinamento fatto in precedenza
-					//non riesce a trovare la data perche e' pure stata cambiata
-					var ordenedArray = []
+					//creazione orderedArray che prende l'contactarray, lo fa ciclare
+					//e se l'elemento precedentemente sortato ne confronta la data
+					//dell'ultimo messaggio per capire quale elemento inserire nel
+					//nuovo array ordinato
+
+					var orderedArray = []
 					for (let indexElementSorted = 0; indexElementSorted < dateForSort.length; indexElementSorted++) {
-						this.contactsArray.forEach((e,indexElementUnsorted) => {		
+						this.contactsArray.forEach((e, indexElementUnsorted) => {
 							if (datePreSorted[indexElementUnsorted] == dateForSort[indexElementSorted]) {
-								ordenedArray.push(e)
+								orderedArray.push(e)
 							}
 						});
 					}
-					return ordenedArray
+					return orderedArray
 				}
 			},
+			//questa funzione fa in modo che all'avviamento la prima chat
+			//mostrata sia quella con l'ultimo messaggio scritto
+			created: function () {
+				var orderedArray = this.intOrderedArray
+				console.log(orderedArray.length, orderedArray[orderedArray.length - 1]);
+				orderedArray.forEach((e, i) => {
+					if (i == (orderedArray.length - 1)) {
+						e.visible = true
+					} else {
+						e.visible = false
+					}
+				});
+			}
 		}
 	);
 });
