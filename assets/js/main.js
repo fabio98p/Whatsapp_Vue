@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				newMessage: '',
 				searchContact: '',
 				//todo, all'inizio non mette l'immagine profilo corretta
-				contactProfile: './assets/img/avatar_1.jpg',
+				contactProfile: '',
 				contactsArray: contacts,
 			},
 			methods: {
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				},
 				//funzione di prova per testare le cose (premere sui 3 pallini del menu nella sidebar)
 				array: function (message, index) {
-					console.log('helloo');
+					console.log(this.contactsArray[this.contactsArray.length - 1].avatar);
 				},
 			},
 			computed: {
@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			//mostrata sia quella con l'ultimo messaggio scritto
 			created: function () {
 				var orderedArray = this.intOrderedArray
+				this.contactProfile = `./assets/img/avatar${orderedArray[orderedArray.length - 1].avatar}.jpg`
 				console.log(orderedArray.length, orderedArray[orderedArray.length - 1]);
 				orderedArray.forEach((e, i) => {
 					if (i == (orderedArray.length - 1)) {
