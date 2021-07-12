@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				// questa funzione serve unicamente a far salire in alto le conversazioni
 				//con come ultimo messaggio il piu recente e ordinarle a loro volta
 				intOrderedArray: function () {
+					console.log('computed');
 					// ordinamento elementi per data dell'ultimo messaggio
 					const dateForSort = []
 					const datePreSorted = []
