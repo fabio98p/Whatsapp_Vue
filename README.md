@@ -1,4 +1,4 @@
-# Whatsapp Vue
+# Whatsapp_Clone
 
 This is a project to create a whatsapp clone using vuejs
 
